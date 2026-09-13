@@ -10,14 +10,24 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
+  function goTypes(){
+    try{if(typeof renderTypes==='function')renderTypes();}catch(err){console.error('renderTypes failed',err);}
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    const types=$('typesView');if(types)types.classList.add('active');
+    document.title='전체 유형 — Stellar 16';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
   function replaceButton(id,handler){const old=$(id);if(!old)return null;const fresh=old.cloneNode(true);old.replaceWith(fresh);fresh.addEventListener('click',handler);return fresh;}
 
   // All-types page back arrow always returns to the first page.
   replaceButton('typesBackButton',goHome);
+  // Type detail back arrow always returns to the all-types page.
+  replaceButton('typeDetailBackButton',goTypes);
 
   // Brand also always returns to the first page from archive/detail views.
   const brand=$('brandButton');
   if(brand){const fresh=brand.cloneNode(true);brand.replaceWith(fresh);fresh.addEventListener('click',goHome);}
 
-  if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=7.7',{updateViaCache:'none'}).catch(()=>{});}
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=7.8',{updateViaCache:'none'}).catch(()=>{});}
 })();
