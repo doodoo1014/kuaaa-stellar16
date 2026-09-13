@@ -1,0 +1,10 @@
+{
+  "name": "Stellar 16 — KUAAA 별 성향검사",
+  "short_name": "Stellar 16",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#040711",
+  "theme_color": "#060b16",
+  "lang": "ko-KR",
+  "icons": []
+}
