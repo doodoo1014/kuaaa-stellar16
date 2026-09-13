@@ -1,0 +1,20 @@
+/* Stellar 16 v7.3 mobile/deployment fixes */
+.result-actions{padding:0 clamp(22px,5vw,54px) 40px!important}
+.save-actions,.secondary-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin:0!important}
+.save-actions{margin-bottom:12px!important}
+.save-actions>button,.secondary-actions>button{box-sizing:border-box!important;width:100%!important;min-width:0!important;min-height:60px!important;margin:0!important;padding:14px 10px!important;line-height:1.25!important}
+/* v6.2 moved the field too far upward on phones; keep it close to the result title. */
+.constellation-art{transform:translateY(-8px)!important}
+.image-save-modal[hidden]{display:none!important}
+.image-save-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.80);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:18px}
+.image-save-sheet{width:min(520px,100%);max-height:92svh;overflow:auto;background:linear-gradient(160deg,#0b1425,#050a13);border:1px solid rgba(220,235,255,.23);border-radius:24px;padding:18px;box-shadow:0 28px 90px rgba(0,0,0,.65)}
+.image-save-sheet-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}.image-save-sheet-head strong{display:block;font-size:17px;color:#f5f8fd}.image-save-sheet-head span{display:block;margin-top:5px;color:#91a3bc;font-size:11px;line-height:1.5}.image-save-close{flex:0 0 38px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:#eaf1fb;font-size:24px;line-height:1;cursor:pointer}
+.image-save-preview-wrap{background:#02050d;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;justify-content:center}.image-save-preview-wrap img{display:block;width:min(100%,390px);height:auto;aspect-ratio:3/4;object-fit:contain;background:#02050d}
+.image-save-sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.image-download-link{text-decoration:none;text-align:center;display:flex;align-items:center;justify-content:center}
+@media(max-width:620px){
+  .constellation-art{transform:translateY(10px)!important}
+  .save-actions,.secondary-actions{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .save-actions>button,.secondary-actions>button{min-height:58px!important;font-size:15px!important;padding:12px 8px!important}
+  .image-save-modal{padding:10px}.image-save-sheet{border-radius:20px 20px 14px 14px;padding:14px}
+}
+@media(max-width:360px){.save-actions>button,.secondary-actions>button{font-size:13px!important}.image-save-sheet-actions{grid-template-columns:1fr}}
