@@ -1,0 +1,8 @@
+/* Stellar 16 v7.6 direct native image download */
+.single-save{display:block!important;margin:0 0 12px!important}
+.single-save .primary-button{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:62px!important;text-decoration:none!important;box-sizing:border-box!important;cursor:pointer!important}
+.single-save .primary-button[aria-disabled="true"]{opacity:.58;cursor:wait;pointer-events:none}
+.secondary-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.secondary-actions>button{width:100%!important;min-width:0!important;min-height:60px!important;margin:0!important}
+@media(max-width:620px){.single-save .primary-button{min-height:60px!important}.secondary-actions{gap:10px!important}.secondary-actions>button{min-height:58px!important;font-size:15px!important}}
+@media(max-width:400px){.secondary-actions{grid-template-columns:1fr!important}}
