@@ -1,0 +1,8 @@
+/* v7.5 additions layered over the existing site */
+.save-actions.single-save{display:block!important;margin:0 0 12px!important}
+.save-actions.single-save>button{width:100%!important;min-height:62px!important;margin:0!important}
+.save-actions.single-save>button:disabled{opacity:.72;cursor:wait;filter:saturate(.75)}
+@media(max-width:620px){
+  .save-actions.single-save{display:block!important}
+  .save-actions.single-save>button{width:100%!important;min-height:58px!important;font-size:16px!important}
+}
