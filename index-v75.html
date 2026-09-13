@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#060b16" />
+  <meta name="description" content="고려대학교 아마추어 천문회 KUAAA — Stellar 16 별 성향검사" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./styles.css?v=7.5" />
+  <link rel="stylesheet" href="./hotfix-v75.css?v=7.5" />
+  <title>Stellar 16 — 당신을 닮은 별</title>
+</head>
+<body>
+  <div class="cosmos" aria-hidden="true">
+    <div class="nebula nebula-a"></div>
+    <div class="nebula nebula-b"></div>
+    <div class="nebula nebula-c"></div>
+    <canvas id="skyCanvas"></canvas>
+    <div class="cosmos-vignette"></div>
+  </div>
+
+  <main class="shell">
+    <header class="topbar">
+      <button id="brandButton" class="brand" aria-label="처음 화면으로">
+        <span class="brand-mark">✦</span>
+        <span>STELLAR 16</span>
+      </button>
+      <div class="club-label">
+        <strong>고려대학교 아마추어 천문회 KUAAA</strong>
+        <span>Korea University Amateur Astronomical Association</span>
+      </div>
+    </header>
+
+    <section id="introView" class="view intro-view active">
+      <div class="hero-scope" aria-hidden="true">
+        <span class="scope-ring scope-ring-a"></span>
+        <span class="scope-ring scope-ring-b"></span>
+        <span class="scope-cross scope-cross-x"></span>
+        <span class="scope-cross scope-cross-y"></span>
+        <span class="hero-star star-cross"></span>
+      </div>
+      <p class="eyebrow">12 QUESTIONS · 16 STARS</p>
+      <h1>당신을 닮은 별은<br><span>무엇인가요?</span></h1>
+      <p class="hero-copy">12개의 일상적인 선택을 따라가면<br>밤하늘의 16개 별 중 당신과 가장 닮은 별을 찾아드립니다.</p>
+      <div class="intro-chips">
+        <span>약 2–3분</span><span>정답 없음</span><span>개인정보 수집 없음</span>
+      </div>
+      <button id="startButton" class="primary-button">별 찾으러 가기 <span>→</span></button>
+      <button id="introTypesButton" class="text-button">전체 유형 먼저 살펴보기</button>
+      <p class="microcopy">오래 고민하기보다 평소의 나와 가까운 답을 골라주세요.</p>
+    </section>
+
+    <section id="quizView" class="view quiz-view">
+      <div class="progress-row">
+        <button id="backButton" class="icon-button" aria-label="이전 질문">←</button>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span id="questionCounter">01 / 12</span><span>STELLAR QUESTION</span></div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+      </div>
+      <article class="question-card">
+        <p id="questionKicker" class="question-kicker">QUESTION 01</p>
+        <h2 id="questionText"></h2>
+        <div id="answerList" class="answer-list"></div>
+      </article>
+    </section>
+
+    <section id="resultView" class="view result-view">
+      <article id="resultCard" class="result-card">
+        <div class="result-visual-zone">
+          <div id="resultStar" class="result-star-art" aria-hidden="true">
+            <span class="result-star-glow"></span><span class="result-star-core"></span>
+            <span class="result-star-ray ray-h"></span><span class="result-star-ray ray-v"></span>
+            <span class="result-star-ray ray-d1"></span><span class="result-star-ray ray-d2"></span>
+          </div>
+        </div>
+        <div class="result-head"><h1 id="resultName"></h1><h2 id="resultTagline"></h2></div>
+        <div id="resultBody" class="result-body"></div>
+        <div class="compatibility-grid">
+          <div class="compat-card good"><span class="compat-label">잘 맞는 별</span><strong id="goodMatches"></strong></div>
+          <div class="compat-card awkward"><span class="compat-label">어색한 별</span><strong id="awkwardMatches"></strong></div>
+        </div>
+        <div class="social-links" aria-label="KUAAA 공식 채널">
+          <a class="social-link instagram" href="https://www.instagram.com/koreauniv_aaa/" target="_blank" rel="noopener noreferrer" aria-label="KUAAA 공식 인스타그램 @koreauniv_aaa">
+            <span class="social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.1"></circle><circle class="fill" cx="17.4" cy="6.7" r="1.15"></circle></svg>
+            </span>
+            <span><small>Instagram</small><strong>@koreauniv_aaa</strong></span>
+          </a>
+          <div class="social-link kakao" aria-label="KUAAA 카카오 채널 @kuaaa">
+            <span class="social-icon kakao-icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28" role="img"><path d="M14 4.2c-6.1 0-11 3.9-11 8.7 0 3.1 2.1 5.9 5.5 7.4L7.4 24l4-2.5c.8.1 1.7.2 2.6.2 6.1 0 11-3.9 11-8.8 0-4.8-4.9-8.7-11-8.7Z"></path><text x="14" y="15.6" text-anchor="middle">Ch</text></svg>
+            </span>
+            <span><small>카카오 채널</small><strong>@kuaaa</strong></span>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button id="saveImageButton" hidden aria-hidden="true" tabindex="-1"></button>
+          <div class="save-actions single-save">
+            <button id="saveSummaryImageButton" class="primary-button" disabled>이미지 준비 중…</button>
+          </div>
+          <div class="secondary-actions">
+            <button id="restartButton" class="secondary-button">다시 해보기</button>
+            <button id="allTypesButton" class="secondary-button">전체 유형 살펴보기</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="typesView" class="view types-view">
+      <div class="page-heading">
+        <button id="typesBackButton" class="icon-button" aria-label="돌아가기">←</button>
+        <div><p class="eyebrow">ALL 16 STARS</p><h1>전체 유형 살펴보기</h1><p>별을 누르면 전체 설명을 볼 수 있어요.</p></div>
+      </div>
+      <div id="typesGrid" class="types-grid"></div>
+    </section>
+
+    <section id="typeDetailView" class="view type-detail-view">
+      <div class="page-heading compact">
+        <button id="typeDetailBackButton" class="icon-button" aria-label="전체 유형으로">←</button>
+        <div><p class="eyebrow">STELLAR 16 ARCHIVE</p><h1>별 유형 자세히 보기</h1></div>
+      </div>
+      <article id="typeDetailCard" class="result-card archive-card">
+        <div class="result-visual-zone">
+          <div id="typeDetailStar" class="result-star-art" aria-hidden="true">
+            <span class="result-star-glow"></span><span class="result-star-core"></span>
+            <span class="result-star-ray ray-h"></span><span class="result-star-ray ray-v"></span>
+            <span class="result-star-ray ray-d1"></span><span class="result-star-ray ray-d2"></span>
+          </div>
+        </div>
+        <div class="result-head"><h1 id="typeDetailName"></h1><h2 id="typeDetailTagline"></h2></div>
+        <div id="typeDetailBody" class="result-body"></div>
+        <div class="compatibility-grid">
+          <div class="compat-card good"><span class="compat-label">잘 맞는 별</span><strong id="typeDetailGood"></strong></div>
+          <div class="compat-card awkward"><span class="compat-label">어색한 별</span><strong id="typeDetailAwk"></strong></div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div><strong>고려대학교 아마추어 천문회 KUAAA</strong><span>Korea University Amateur Astronomical Association</span></div>
+      <small>STELLAR 16 · KUAAA</small><small class="data-credit">Constellation lines: Stellarium Western · Star coordinates: HYG Database v4.1</small>
+    </footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js?v=7.5"></script>
+  <script src="./hotfix-v75.js?v=7.5"></script>
+</body>
+</html>
