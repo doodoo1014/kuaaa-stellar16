@@ -43,7 +43,7 @@
     ctx.textAlign='center';ctx.fillStyle='#f8fafc';ctx.font='700 88px sans-serif';ctx.fillText(r.name,W/2,1220);
     ctx.fillStyle='#cbd6e6';ctx.font='600 43px sans-serif';drawCentered(ctx,r.tag,W/2,1310,1110,60);
     ctx.strokeStyle=`rgba(${rr},${gg},${bb},.24)`;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(235,1492);ctx.lineTo(W-235,1492);ctx.stroke();
-    ctx.fillStyle='#b7c6d9';ctx.font='700 35px sans-serif';ctx.fillText('고려대학교 아마추어 천문회 KUAAA · STELLAR 16',W/2,1615);
+    ctx.fillStyle='#b7c6d9';ctx.font='700 35px sans-serif';ctx.fillText('고려대학교 아마추어 천문회 KUAAA',W/2,1615);
     ctx.fillStyle='#93a6bf';ctx.font='25px sans-serif';ctx.fillText('Korea University Amateur Astronomical Association',W/2,1670);
     ctx.fillStyle='#8298b4';ctx.font='23px sans-serif';ctx.fillText('Instagram @koreauniv_aaa  ·  Kakao Channel @kuaaa',W/2,1722);
     return canvas;
