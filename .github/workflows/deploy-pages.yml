@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -20,43 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Materialize packaged site source
-        shell: bash
-        run: |
-          set -euo pipefail
-          if compgen -G 'payload/part-*.txt' > /dev/null; then
-            cat payload/part-*.txt | base64 --decode > /tmp/stellar16-site.zip
-            unzip -oq /tmp/stellar16-site.zip -d .
-          fi
-
-      - name: Vendor astronomy data locally
-        run: python3 scripts/vendor_sky_data.py
-
-      - name: Remove bootstrap payload
-        shell: bash
-        run: |
-          rm -rf payload
-          rm -f scripts/materialize_site.py
-
-      - name: Commit materialized site and local data
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m 'Materialize deployable Stellar 16 site [skip ci]'
-            git push origin HEAD:main
-          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Build Pages artifact
         shell: bash
