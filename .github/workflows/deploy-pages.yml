@@ -30,8 +30,8 @@ jobs:
           set -euo pipefail
           rm -rf _site
           mkdir -p _site/data
-          cp index-v76.html _site/index.html
-          cp styles.css hotfix-v76.css app.js hotfix-v76.js sw.js manifest.webmanifest THIRD_PARTY_DATA.md .nojekyll _site/
+          cp index-v77.html _site/index.html
+          cp styles.css hotfix-v77.css app.js hotfix-v76.js hotfix-v77.js sw.js manifest.webmanifest THIRD_PARTY_DATA.md .nojekyll _site/
           cp data/western-stellar16.json data/stars-stellar16.csv _site/data/
 
       - name: Upload Pages artifact
