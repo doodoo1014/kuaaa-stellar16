@@ -38,8 +38,8 @@
   function buildSummarySync(key){
     const r=RESULTS[key],v=VISUALS[key],W=1500,H=2000,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
     paintStarfield(ctx,W,H);
-    const [rr,gg,bb]=hexToRgb(v.color);const glow=ctx.createRadialGradient(W*.5,455,20,W*.5,455,560);glow.addColorStop(0,`rgba(${rr},${gg},${bb},.21)`);glow.addColorStop(.48,`rgba(${rr},${gg},${bb},.06)`);glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,1130);
-    drawRenderedConstellation(ctx,W/2,465,1260,760,key);
+    const [rr,gg,bb]=hexToRgb(v.color);const glow=ctx.createRadialGradient(W*.5,490,20,W*.5,490,560);glow.addColorStop(0,`rgba(${rr},${gg},${bb},.21)`);glow.addColorStop(.48,`rgba(${rr},${gg},${bb},.06)`);glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,1130);
+    drawRenderedConstellation(ctx,W/2,500,1260,760,key);
     ctx.textAlign='center';ctx.fillStyle='#f8fafc';ctx.font='700 88px sans-serif';ctx.fillText(r.name,W/2,1220);
     ctx.fillStyle='#cbd6e6';ctx.font='600 43px sans-serif';drawCentered(ctx,r.tag,W/2,1310,1110,60);
     ctx.strokeStyle=`rgba(${rr},${gg},${bb},.24)`;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(235,1492);ctx.lineTo(W-235,1492);ctx.stroke();
@@ -65,5 +65,5 @@
   const old=$('saveSummaryImageButton');
   if(old){const link=old.cloneNode(true);old.replaceWith(link);link.removeAttribute('disabled');link.setAttribute('aria-disabled','false');link.textContent='이미지로 저장하기';link.href='#';link.addEventListener('click',nativeSaveClick);}
 
-  if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=7.6',{updateViaCache:'none'}).catch(()=>{});}
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=7.8',{updateViaCache:'none'}).catch(()=>{});}
 })();
