@@ -1,4 +1,4 @@
-const CACHE='stellar16-v7.7';
+const CACHE='stellar16-v7.8';
 const LOCAL=['./','./index.html','./styles.css?v=7.7','./hotfix-v77.css?v=7.7','./app.js?v=7.7','./hotfix-v76.js?v=7.7','./hotfix-v77.js?v=7.7','./manifest.webmanifest','./data/western-stellar16.json','./data/stars-stellar16.csv'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(LOCAL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
